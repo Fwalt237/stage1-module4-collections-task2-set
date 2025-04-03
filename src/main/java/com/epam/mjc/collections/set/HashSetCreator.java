@@ -14,7 +14,8 @@ public class HashSetCreator {
                 do{
                     resultSet.add(temp);
                     temp = temp/2;
-                } while(temp%2!=0);
+                } while(temp%2==0);
+                resultSet.add(temp);
             }else{
                 resultSet.add(i);
                 resultSet.add(i*2);
