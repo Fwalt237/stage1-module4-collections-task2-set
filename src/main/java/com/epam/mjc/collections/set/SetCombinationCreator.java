@@ -5,20 +5,17 @@ import java.util.Set;
 
 public class SetCombinationCreator {
     public Set<String> createSetCombination(Set<String> firstSet, Set<String> secondSet, Set<String> thirdSet) {
-        Set<String> result = new HashSet<>();
         Set<String> intersectionFirstSecond = new HashSet<>(firstSet);
         intersectionFirstSecond.retainAll(secondSet);
-        for (String s : thirdSet) {
-            if (!intersectionFirstSecond.contains(s)) {
-                result.add(s);
-            }
-        }
+        intersectionFirstSecond.removeAll(thirdSet);
 
         Set<String> unionFirstSecond = new HashSet<>(firstSet);
         unionFirstSecond.addAll(secondSet);
-        thirdSet.removeAll(unionFirstSecond);
-        result.addAll(thirdSet);
+        Set<String> removeFirstSecond = new HashSet<>(thirdSet);
+        removeFirstSecond.removeAll(unionFirstSecond);
 
-        return result;
+        removeFirstSecond.addAll(intersectionFirstSecond);
+
+        return removeFirstSecond;
     }
 }

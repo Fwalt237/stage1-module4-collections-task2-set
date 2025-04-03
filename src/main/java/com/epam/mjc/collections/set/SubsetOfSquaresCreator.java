@@ -9,8 +9,9 @@ public class SubsetOfSquaresCreator {
     public Set<Integer> createSubsetOfSquares(List<Integer> sourceList, int lowerBound, int upperBound) {
         Set<Integer> result = new TreeSet<>();
         for (int element : sourceList) {
-            if (element*element >= lowerBound && element*element <= upperBound) {
-                result.add(element);
+            int temp = element*element;
+            if (temp >= lowerBound && temp <= upperBound) {
+                result.add(temp);
             }
         }
         return result;

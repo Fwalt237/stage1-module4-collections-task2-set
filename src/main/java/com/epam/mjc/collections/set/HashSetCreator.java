@@ -10,10 +10,11 @@ public class HashSetCreator {
         HashSet<Integer> resultSet = new HashSet<>();
         for (Integer i : sourceList) {
             if(i%2==0){
+                int temp = i;
                 do{
-                    resultSet.add(i);
-                    i = i/2;
-                } while(i%2!=0);
+                    resultSet.add(temp);
+                    temp = temp/2;
+                } while(temp%2!=0);
             }else{
                 resultSet.add(i);
                 resultSet.add(i*2);
